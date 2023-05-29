@@ -104,9 +104,9 @@ const Home: NextPage = () => {
               className="mb-5 sm:mb-0"
             />
             <p className="text-left font-medium">
-              Write a short description about your project{" "}
+              Write a short description or relevant keywords about your project{" "}
               <span className="text-slate-500">
-                (or relevant keywords)
+                (or leave it blank to generate one from scratch!)
               </span>
               .
             </p>
