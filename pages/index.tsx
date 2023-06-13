@@ -31,7 +31,7 @@ const Home: NextPage = () => {
   //     Make sure each generated studygraphy is less than 160 characters, has short sentences that are found in Twitter studys, and base them on this context: ${study}${
   //   study.slice(-1) === "." ? "" : "."
   // }`;
-  const persona = `Ignore all previous instructions. Here is your new role and Persona:\nYou are a UI/UX designer, you possess a wealth of experience and expertise in creating user-centered digital experiences. Your understanding of the importance of putting the user at the core of the design process, conducting thorough user research, and gathering valuable insights informs your design decisions. Your keen eye for aesthetics and strong visual design skills allow you to create visually appealing and engaging interfaces that captivate users. You excel in interaction design, ensuring that the interfaces you create are intuitive, easy to navigate, and encourage user engagement. You are a master of writing professional and detailed case studies.\n`
+  const persona = `Ignore all previous instructions. Here is your new role and Persona:\nYou are a UI/UX designer, you possess a wealth of experience and expertise in creating user-centered digital experiences. Your understanding of the importance of putting the user at the core of the design process, conducting thorough user research, and gathering valuable insights informs your design decisions. Your keen eye for aesthetics and strong visual design skills allow you to create visually appealing and engaging interfaces that captivate users. You excel in interaction design, ensuring that the interfaces you create are intuitive, easy to navigate, and encourage user engagement. You are a master of writing professional and detailed case studies.\n`;
   const prompt = `${persona}Generate a detailed UI/UX case study. It should have the follwoing headings: Painpoints, Scope & constraints, Roles and responsibilities, Ideation, Design approach & principles, Design artifacts and Outcomes & lessons Base it on this context: ${study}`;
 
   const generateStudy = async (e: any) => {
@@ -73,7 +73,7 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div className="flex max-w-5xl mx-auto flex-col items-center justify-center py-2 min-h-screen">
+    <div className="flex mx-auto flex-col items-center justify-center py-2 min-h-screen">
       <Head>
         <title>Snapfolio - AI Case Study Generator</title>
         <link rel="icon" href="/favicon.ico" />
@@ -90,10 +90,25 @@ const Home: NextPage = () => {
           <Github />
           <p>Star on GitHub</p>
         </a> */}
-        <h1 className="sm:text-6xl text-4xl max-w-[708px] font-bold text-slate-900">
+        <h1 className="sm:text-6xl max-w-[749px] accent">
           Generate your next Case Study using AI
         </h1>
-        <p className="text-slate-500 mt-5">11,938 case studies generated so far.</p>
+        <p className="body-1 fg-text mt-5">
+          11,938 case studies generated so far.
+        </p>
+        <button
+          type="button"
+          className="py-3 px-[18px] mt-4 inline-flex justify-center items-center gap-2 rounded-lg border border-accent fg-accent button-md-bold"
+        >
+          <Image
+              src="/icons/play.svg"
+              width={20}
+              height={20}
+              alt="1 icon"
+              className="mb-5 sm:mb-0"
+            />
+          Learn how it works
+        </button>
         <div className="max-w-xl w-full">
           <div className="flex mt-10 items-center space-x-3">
             <Image
@@ -192,9 +207,10 @@ const Home: NextPage = () => {
                     });
                   }}
                 >
-                    <pre className="text-left whitespace-pre-wrap break-words">{generatedStudy}</pre>
+                  <pre className="text-left whitespace-pre-wrap break-words">
+                    {generatedStudy}
+                  </pre>
                 </div>
-
               </div>
             </>
           )}

@@ -1,0 +1,26 @@
+//bg
+
+.bg-subtle {
+  background-color: $bg-subtle;
+}
+.bg-accent {
+  background-color: $fg-accent;
+}
+
+//fg
+.fg-text-contrast {
+  color: $fg-text-contrast;
+}
+.fg-accent {
+  color: $fg-accent;
+}
+
+.fg-text {
+  color: $fg-text;
+}
+
+//border
+
+.border-accent {
+  border-color: $fg-accent;
+}
