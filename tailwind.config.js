@@ -15,6 +15,7 @@ module.exports = {
         logo: ['"Istok Web"', "sans-serif"],
         display: ["Inter", "sans-serif"],
         body: ["Inter", "sans-serif"],
+        caption: ["Roboto", "sans-serif"],
       },
       dropShadow: {
         "3xl": "0 35px 35px rgba(0, 0, 0, 0.25)",

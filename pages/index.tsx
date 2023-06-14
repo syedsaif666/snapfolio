@@ -8,6 +8,8 @@ import Footer from "../components/Footer";
 import Github from "../components/GitHub";
 import Header from "../components/Header";
 import LoadingDots from "../components/LoadingDots";
+import Card from "@/components/Cards";
+import cardsData from "../public/cards.json";
 
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(false);
@@ -93,26 +95,52 @@ const Home: NextPage = () => {
         <h1 className="sm:text-6xl max-w-[749px] accent">
           Generate your next Case Study using AI
         </h1>
-        <p className="body-1 fg-text mt-5">
+        <p className="body-2 fg-text mt-5">
           11,938 case studies generated so far.
         </p>
         <button
           type="button"
-          className="py-3 px-[18px] mt-4 inline-flex justify-center items-center gap-2 rounded-lg border border-accent fg-accent button-md-bold"
+          className="py-3 px-[18px] mt-4 inline-flex justify-center items-center gap-2 rounded-lg border fg-border-accent fg-accent button-md-bold"
         >
           <Image
-              src="/icons/play.svg"
-              width={20}
-              height={20}
+            src="/icons/play.svg"
+            width={20}
+            height={20}
+            alt="1 icon"
+            className="mb-5 sm:mb-0"
+          />
+          Learn how it works
+        </button>
+        <div className="max-w-[800px] w-full">
+          <div className="flex mt-10 items-center space-x-3 mb-8">
+            <Image
+              src="/1-black.png"
+              width={30}
+              height={30}
               alt="1 icon"
               className="mb-5 sm:mb-0"
             />
-          Learn how it works
-        </button>
-        <div className="max-w-xl w-full">
+            <p className="body-2 fg-text-contrast">
+              Customize your case study by including the sections you like.
+            </p>
+            <div className="grow" />
+            <p className="micro-bold fg-text">SELECTED</p>
+            <p className="micro-bold fg-text bg-hover rounded-sm px-1"> 1</p>
+          </div>
+          <div className="grid gap-4 grid-cols-3">
+            {cardsData.map((card) => (
+              <Card
+                key={card.id}
+                active={card.id == 3}
+                heading={card.title}
+                content={card.description}
+                icon={card.icon}
+              />
+            ))}
+          </div>
           <div className="flex mt-10 items-center space-x-3">
             <Image
-              src="/1-black.png"
+              src="/2-black.png"
               width={30}
               height={30}
               alt="1 icon"

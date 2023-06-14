@@ -7,6 +7,14 @@
   background-color: $fg-accent;
 }
 
+.bg-hover {
+  background-color: $slate4;
+}
+
+.bg-active {
+  background-color: $bg-active;
+}
+
 //fg
 .fg-text-contrast {
   color: $fg-text-contrast;
@@ -21,6 +29,14 @@
 
 //border
 
-.border-accent {
+.fg-border-accent {
   border-color: $fg-accent;
+}
+
+.fg-border {
+  border-color: $fg-border;
+}
+
+.fg-solid-border {
+  border-color: $fg-solid;
 }
