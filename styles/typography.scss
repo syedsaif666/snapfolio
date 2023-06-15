@@ -32,6 +32,11 @@ h1 {
   line-height: 150%;
 }
 
+.body-3 {
+  @apply font-body text-sm font-normal;
+  line-height: 150%;
+}
+
 //subtitle
 
 .subtitle-1 {
