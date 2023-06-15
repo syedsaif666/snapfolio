@@ -2,10 +2,10 @@ import { Analytics } from "@vercel/analytics/react";
 import type { AppProps } from "next/app";
 import "../styles/globals.scss";
 import { useEffect } from "react";
-declare module 'preline'
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
+    // @ts-ignore
     import("preline");
   }, []);
   return (
