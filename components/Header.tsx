@@ -5,14 +5,11 @@ export default function Header() {
   return (
     <header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-subtle drop-shadow-md text-sm py-[9px]">
       <nav
-        className="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between"
+        className="max-w-[1440px] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between"
         aria-label="Global"
       >
         <div className="flex items-center justify-between">
-          <a
-            className="flex-none text-xl font-logo font-semibold"
-            href="#"
-          >
+          <a className="flex-none text-xl font-logo font-semibold" href="#">
             Snapfolio
           </a>
           <div className="sm:hidden">
@@ -69,11 +66,11 @@ export default function Header() {
           </div>
         </div>
         <a className="button-md-bold text-contrast accent p-3 mr-2" href="#">
-              Login
-            </a>
+          Login
+        </a>
         <div className="pt-3 md:pt-0">
           <a
-            className=" button-md-bold inline-flex justify-center items-center gap-x-2 text-center bg-accent text-white rounded-lg py-2.5 px-3"
+            className=" button-md-bold inline-flex justify-center items-center gap-x-2 text-center bg-fg-accent text-white rounded-lg py-2.5 px-3"
             href="#"
           >
             Get Started for Free

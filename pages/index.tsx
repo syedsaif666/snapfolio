@@ -16,6 +16,8 @@ const Home: NextPage = () => {
   const [study, setStudy] = useState("");
   // const [vibe, setVibe] = useState<VibeType>("Professional");
   const [generatedStudy, setGeneratedStudy] = useState("");
+  const [selectedCards, setSelectedCards] = useState<number[]>([]);
+
 
   const studyRef = useRef<null | HTMLDivElement>(null);
 
@@ -74,6 +76,16 @@ const Home: NextPage = () => {
     setLoading(false);
   };
 
+  function handleCardClick(index: number) {
+    setSelectedCards((prevSelectedCards) => {
+      if (prevSelectedCards.includes(index)) {
+        return prevSelectedCards.filter((cardIndex) => cardIndex !== index);
+      } else {
+        return [...prevSelectedCards, index];
+      }
+    });
+  }
+
   return (
     <div className="flex mx-auto flex-col items-center justify-center min-h-screen">
       <Head>
@@ -100,7 +112,7 @@ const Home: NextPage = () => {
         </p>
         <button
           type="button"
-          className="py-3 px-[18px] mt-4 inline-flex justify-center items-center gap-2 rounded-lg border fg-border-accent fg-accent button-md-bold"
+          className="py-3 px-[18px] mt-4 inline-flex justify-center items-center gap-2 rounded-lg border fg-accent-border fg-accent button-md-bold"
         >
           <Image
             src="/icons/play.svg"
@@ -113,25 +125,29 @@ const Home: NextPage = () => {
         </button>
         <div className="max-w-[800px] w-full">
           <div className="flex mt-10 items-center space-x-3 mb-8">
-            <Image
-              src="/1-black.png"
+            <p className="flex items-center w-8 h-8 body-2 text-white rounded-full bg-fg-accent pl-3 pr-[11px]">
+              1
+            </p>
+            {/* <Image
+              src="/1-blue.png"
               width={30}
               height={30}
               alt="1 icon"
               className="mb-5 sm:mb-0"
-            />
+            /> */}
             <p className="body-2 fg-text-contrast">
               Customize your case study by including the sections you like.
             </p>
             <div className="grow" />
             <p className="micro-bold fg-text">SELECTED</p>
-            <p className="micro-bold fg-text bg-hover rounded-sm px-1"> 1</p>
+            <p className="micro-bold fg-text bg-hover rounded-sm px-1">{selectedCards.length}</p>
           </div>
           <div className="grid gap-4 grid-cols-3">
-            {cardsData.map((card) => (
+            {cardsData.map((card, index) => (
               <Card
                 key={card.id}
-                active={card.id == 3}
+                onClick={() => handleCardClick(index)}
+                active={selectedCards.includes(index)}
                 heading={card.title}
                 content={card.description}
                 icon={card.icon}
@@ -139,13 +155,9 @@ const Home: NextPage = () => {
             ))}
           </div>
           <div className="flex mt-10 items-center space-x-3">
-            <Image
-              src="/2-black.png"
-              width={30}
-              height={30}
-              alt="1 icon"
-              className="mb-5 sm:mb-0"
-            />
+            <p className="flex items-center w-8 h-8 body-2 text-white rounded-full bg-fg-accent px-[11px]">
+              2
+            </p>
             <p className="text-left font-medium">
               Write a short description or relevant keywords about your project{" "}
               <span className="text-slate-500">
@@ -173,7 +185,7 @@ const Home: NextPage = () => {
 
           {!loading && (
             <button
-              className="bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-10 mt-8 hover:bg-black/80 w-full"
+              className="bg-fg-accent max-w-md rounded-lg text-white button-md-bold px-4 py-6 sm:mt-10 mt-8 hover:bg-black/80 w-full"
               onClick={(e) => generateStudy(e)}
             >
               Generate your case study &rarr;
@@ -181,7 +193,7 @@ const Home: NextPage = () => {
           )}
           {loading && (
             <button
-              className="bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-10 mt-8 hover:bg-black/80 w-full"
+              className="bg-fg-accent max-w-md rounded-lg text-white button-md-bold px-4 py-6 sm:mt-10 mt-8 hover:bg-black/80 w-full"
               disabled
             >
               <LoadingDots color="white" style="large" />

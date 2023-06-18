@@ -3,12 +3,12 @@
 .bg-subtle {
   background-color: $bg-subtle;
 }
-.bg-accent {
+.bg-fg-accent {
   background-color: $fg-accent;
 }
 
 .bg-hover {
-  background-color: $slate4;
+  background-color: $bg-hover;
 }
 
 .bg-active {
@@ -29,7 +29,7 @@
 
 //border
 
-.fg-border-accent {
+.fg-accent-border {
   border-color: $fg-accent;
 }
 
